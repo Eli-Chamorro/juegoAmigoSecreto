@@ -14,6 +14,9 @@ function agregarAmigo(){
     if (amigo === ""){
         alert("Por favor ingrese un nombre valido");
     }
+    else if (listaAmigos.includes(amigo)) {
+        alert("El nombre de su amigo ya esta cargado, por favor digite otro nombre o agregue diferenciadores");
+    }
     else {
         listaAmigos.push(amigo);
         limpiarCaja();
@@ -36,14 +39,15 @@ function actualizarLista(){
 
 
 function sortearAmigo() {
-    if (listaAmigos.length > 0){
-        var i= Math.floor(Math.random()*listaAmigos.length)+1;
-        //console.log(i);
-        var nombre= listaAmigos[i];
-        var res = document.getElementById('resultado');
-        res.innerHTML= nombre; 
+    if (0 === parseInt(listaAmigos.length)){
+        alert("Carga amigos para poder sortear"); 
     }
     else {
-        alert("Carga amigos para poder sortear");
+        var i= Math.floor(Math.random()*parseInt(listaAmigos.length));
+        console.log(i);
+        var nombre= listaAmigos[i];
+        console.log(nombre);
+        var res = document.getElementById('resultado');
+        res.innerHTML= nombre;
     }
 }
